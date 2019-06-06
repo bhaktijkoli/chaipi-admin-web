@@ -36,4 +36,6 @@ $(function() {
   };
   // The start method will wait until the DOM is loaded.
   ui.start('#firebaseui-auth-container', uiConfig);
+  var user = firebase.auth().currentUser;
+  console.log(user)
 })

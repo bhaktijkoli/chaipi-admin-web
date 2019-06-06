@@ -1,6 +1,12 @@
 require('dotenv').config();
 const express = require('express')
 const exphbs = require('express-handlebars')
+const admin = require('firebase-admin')
+const serviceAccount = require('./test-phone-auth-5aea0-firebase-adminsdk-scv66-f4016a5ed9.json')
+const   firebaseAdmin = admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://test-phone-auth-5aea0.firebaseio.com'
+})
 
 // controllers
 const loginPageController = require('./controllers/login')

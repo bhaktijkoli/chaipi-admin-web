@@ -16,6 +16,7 @@
 
 <script>
 import firebase from 'firebase'
+import axios from 'axios'
 export default {
     name: 'dashboard',
     data() {
@@ -24,10 +25,14 @@ export default {
             userId: ''
         }
     },
-    created() {
+    mounted() {
         this.user = firebase.auth().currentUser;
         if(this.user) {
-            this.userId  = this.user.uid
+            axios 
+            .get(`https://chaipaan.tk/api/v1/user/get/${this.user.uid}`)
+            .then(res => {
+                console.log(res.data)
+            })
         }
     },
     methods: {

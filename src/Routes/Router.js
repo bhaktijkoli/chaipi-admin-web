@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router'
 
-import Login from '../components/login/Login'
+import Login from '../components/Login/Login'
 import DashBoard from '../components/DashBoard'
 
 const router = new VueRouter({
@@ -13,6 +13,7 @@ const router = new VueRouter({
             path: '/dashboard',
             component: DashBoard
         }
+        
     ],
     mode: 'history'
 })

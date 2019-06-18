@@ -16,8 +16,7 @@ export default {
         let uiConfig = {
             signInSuccessUrl: '/dashboard',
             signInOptions: [
-                firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                
+                firebase.auth.PhoneAuthProvider.PROVIDER_ID,    
             ]
         }
         let ui = new firebaseui.auth.AuthUI(firebase.auth());

@@ -1,7 +1,7 @@
 export const config = { 
-  apiKey: "AIzaSyC9LeFmQAX4jBcbyASwnFblqxRktMqGjsU", 
-  authDomain: "test-phone-auth-5aea0.firebaseapp.com", 
-  databaseURL: "https://test-phone-auth-5aea0.firebaseio.com", 
-  storageBucket: "test-phone-auth-5aea0.appspot.com", 
-  messagingSenderId: "51495325106"
-};
+  apiKey: "AIzaSyC3htbm-RLjQWYMeZyRdBddlawqpcUPhJk", 
+  authDomain: "chaipi-238608.firebaseapp.com", 
+  databaseURL: "https://chaipi-238608.firebaseio.com", 
+  storageBucket: "chaipi-238608.appspot.com", 
+  messagingSenderId: "778753524039"
+};  

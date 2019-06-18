@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <div v-if="userRole == true">
         <h2>
             Hello World:(
         </h2>
@@ -11,6 +12,12 @@
         <p class="text-primary">
             {{userId}}
         </p>
+        </div>
+        <div v-else>
+            <h2 class="text-danger">
+                You are not valid permission to serve this page.
+            </h2>
+        </div>
     </div>
 </template>
 
@@ -22,7 +29,8 @@ export default {
     data() {
         return {
             user: '',
-            userId: ''
+            userId: '',
+            userRole:''
         }
     },
     mounted() {
@@ -31,7 +39,9 @@ export default {
             axios 
             .get(`https://chaipaan.tk/api/v1/user/get/${this.user.uid}`)
             .then(res => {
-                console.log(res.data)
+                if(res.data.role <= 0){
+                    this.userRole = true
+                }
             })
         }
     },

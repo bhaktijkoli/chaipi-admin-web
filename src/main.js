@@ -6,6 +6,8 @@ import firebaseui from 'firebaseui'
 import router from './Routes/Router'
 import {config} from './Config/Firebase'
 
+window.axios = require('axios');
+
 Vue.use(VueRouter)
 
 Vue.config.productionTip = false
@@ -15,13 +17,24 @@ new Vue({
   created() {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged((user) => {
-      if(user){
-        this.$router.push('/dashboard')
-      }
-      else{
-        this.$router.push('/')
+      if(user) {
+        axios.get(api('user/get/'+user.uid)).then(res => {
+          if(res.data.role > 0) {
+            user = res.data;
+            console.log(user);
+            // Store this user to vuex store
+          } else {
+            // Show No Access Page
+          }
+        })
+      } else {
+        // Show No Access Page
       }
     })
   },
   render: h => h(App),
 }).$mount('#app')
+
+window.api = (url) => {
+  return `https://chaipaan.tk/api/v1/${url}`;
+}

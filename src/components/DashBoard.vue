@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import firebase from 'firebase'
 import axios from 'axios'
 export default {
     name: 'dashboard',
@@ -34,16 +33,7 @@ export default {
         }
     },
     mounted() {
-        this.user = firebase.auth().currentUser;
-        if(this.user) {
-            axios 
-            .get(`https://chaipaan.tk/api/v1/user/get/${this.user.uid}`)
-            .then(res => {
-                if(res.data.role <= 0){
-                    this.userRole = true
-                }
-            })
-        }
+      
     },
     methods: {
         logOut(){

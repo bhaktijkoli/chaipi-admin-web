@@ -12,6 +12,8 @@ Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 
+// Initialize vuex, loading var with true;
+
 new Vue({
   router,
   created() {
@@ -23,12 +25,15 @@ new Vue({
             user = res.data;
             console.log(user);
             // Store this user to vuex store
+            // Set loading to false
           } else {
             // Show No Access Page
+            // Set loading to false
           }
         })
       } else {
         // Show No Access Page
+        // Set loading to false
       }
     })
   },

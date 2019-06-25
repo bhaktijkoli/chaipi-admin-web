@@ -5,6 +5,7 @@ import firebase from 'firebase'
 import firebaseui from 'firebaseui'
 import router from './Routes/Router'
 import {config} from './Config/Firebase'
+import store from './Store/Store'
 
 window.axios = require('axios');
 
@@ -16,6 +17,7 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   created() {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged((user) => {
@@ -25,15 +27,21 @@ new Vue({
             user = res.data;
             console.log(user);
             // Store this user to vuex store
+            store.commit('user', user)
             // Set loading to false
+            store.commit('loading', false)
           } else {
             // Show No Access Page
+
             // Set loading to false
+            store.commit('loading', false)
           }
         })
       } else {
         // Show No Access Page
+
         // Set loading to false
+        store.commit('loading', false)
       }
     })
   },
